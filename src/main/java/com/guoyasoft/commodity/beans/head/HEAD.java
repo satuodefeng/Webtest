@@ -14,10 +14,10 @@ package com.guoyasoft.commodity.beans.head;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Serializable;
+import java.io.StringWriter;
 import java.io.Writer;
+
 import org.exolab.castor.xml.*;
-import org.exolab.castor.xml.MarshalException;
-import org.exolab.castor.xml.ValidationException;
 import org.xml.sax.ContentHandler;
 
 /**
@@ -168,5 +168,16 @@ public class HEAD implements java.io.Serializable {
         org.exolab.castor.xml.Validator validator = new org.exolab.castor.xml.Validator();
         validator.validate(this);
     } //-- void validate() 
-
+    public String toXMLString(String svcContent){
+ 		try{
+ 	    	StringWriter out = new StringWriter();
+ 	    	this.marshal(out);
+ 			String xml = out.toString();
+ 			xml = xml.replaceAll("asia-spect","\n\t<![CDATA["+ svcContent+"]]>\n\t");	    	
+ 			return xml; 
+ 		}catch(Exception ex){
+ 			ex.printStackTrace();
+ 			return "";
+ 		}		
+     } 
 }

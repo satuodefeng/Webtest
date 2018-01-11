@@ -11,7 +11,7 @@
   </welcome-file-list>
   <servlet>
   	<servlet-name>commodityServer</servlet-name>
-  	<servlet-class>com.guoyasoft.commodity.server.CommodityServer</servlet-class>
+  	<servlet-class>com.guoyasoft.commodity.controller.CommodityServer</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>commodityServer</servlet-name>
